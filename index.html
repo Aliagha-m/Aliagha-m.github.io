@@ -14,9 +14,8 @@
       color: #fff;
       display: flex;
       justify-content: center;
-      align-items: center;
+      padding: 40px 20px;
       min-height: 100vh;
-      padding: 20px;
     }
 
     .profile-card {
@@ -24,9 +23,10 @@
       backdrop-filter: blur(15px);
       border-radius: 20px;
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      width: 350px;
-      text-align: center;
-      padding: 30px 20px;
+      max-width: 400px;
+      width: 100%;
+      padding: 30px 25px;
+      box-sizing: border-box;
     }
 
     .profile-img {
@@ -36,7 +36,8 @@
       border: 4px solid #fff;
       object-fit: cover;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
+      display: block;
       transition: transform 0.3s ease;
     }
 
@@ -49,16 +50,17 @@
       font-weight: 600;
       font-size: 2.5rem;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #fff;
+      text-align: center;
     }
 
     p.title {
-      margin-top: 0;
-      margin-bottom: 30px;
+      margin: 0 0 25px 0;
       font-weight: 300;
       font-size: 1.1rem;
       color: #e0e0e0;
+      text-align: center;
     }
 
     .contact-info {
@@ -68,6 +70,7 @@
       border-radius: 15px;
       font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 25px;
     }
 
     .contact-info p {
@@ -85,13 +88,116 @@
       text-decoration: underline;
     }
 
+    /* About Me Section */
+    .about-me {
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .about-me h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: 600;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 4px;
+      font-size: 1.5rem;
+    }
+
+    /* Skills Section */
+    .skills {
+      margin-bottom: 25px;
+    }
+
+    .skills h2 {
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .skill {
+      margin-bottom: 15px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .skill-bar {
+      background: rgba(255,255,255,0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+
+    .skill-level {
+      height: 100%;
+      background: #ffd700;
+      border-radius: 10px 0 0 10px;
+      width: 0;
+      animation: loadSkill 2s forwards;
+    }
+
+    /* Different widths for different skills */
+    .skill-html .skill-level { width: 90%; animation-delay: 0.2s; }
+    .skill-css .skill-level { width: 85%; animation-delay: 0.4s; }
+    .skill-js .skill-level { width: 75%; animation-delay: 0.6s; }
+    .skill-react .skill-level { width: 70%; animation-delay: 0.8s; }
+
+    @keyframes loadSkill {
+      to {
+        width: var(--width);
+      }
+    }
+
+    /* Social Links */
+    .social-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 12px;
+      text-decoration: none;
+      color: #ffd700;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+
     /* Responsive */
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
       .profile-card {
-        width: 100%;
+        padding: 25px 15px;
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .skills h2,
+      .about-me h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="profile-card">
@@ -102,6 +208,49 @@
     <div class="contact-info">
       <p><strong>Email:</strong> <a href="mailto:ali123@gmail.com">ali123@gmail.com</a></p>
       <p><strong>Phone:</strong> <a href="tel:+628123456789">+62 812 3456 789</a></p>
+    </div>
+
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>Passionate web developer with 5+ years of experience creating responsive, user-friendly websites and applications. Skilled in JavaScript, React, and modern CSS. Always eager to learn new technologies and improve my craft.</p>
+    </div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+
+      <div class="skill skill-html">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar">
+          <div class="skill-level" style="--width: 90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill skill-css">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar">
+          <div class="skill-level" style="--width: 85%;"></div>
+        </div>
+      </div>
+
+      <div class="skill skill-js">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar">
+          <div class="skill-level" style="--width: 75%;"></div>
+        </div>
+      </div>
+
+      <div class="skill skill-react">
+        <div class="skill-name">React</div>
+        <div class="skill-bar">
+          <div class="skill-level" style="--width: 70%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://github.com/ali" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/ali" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ali" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
   </div>
 </body>
